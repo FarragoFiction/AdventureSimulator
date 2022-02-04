@@ -11,7 +11,7 @@ const StoryBeat: React.FC<StoryBeatType> = ({ command, response }) => {
   return (
     <div className="storybeat">
       <div className="historical-command">{"> "}{command}</div>
-      <div className="response">{response}</div>
+      <div className="response" dangerouslySetInnerHTML={{__html: response}}></div>
     </div>
   );
 }
