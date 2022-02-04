@@ -23,6 +23,12 @@ body {
 .story-so-far{
   margin-bottom: 50px;
   overflow: auto;
+  height: 600px;
+}
+
+.response{
+  margin-bottom: 30px;
+  margin-right: 10px;
 }
 
 .command{

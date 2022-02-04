@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import StoryBeat, { StoryBeatType } from './StoryBeat';
+
+
+
+const  httpGet =(theUrl:string)=>
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
 function App() {
+  //httpGet("http://farragofiction.com:1972/Story")
+  //`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You're just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
+  const [story, setStory] = useState<StoryBeatType[]>(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
+  console.log("JR NOTE: story is", story);
   return (
     <div className="container">
       <div className="story-so-far">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut suscipit libero. Ut sapien arcu, tristique ut tristique sit amet, accumsan ut erat. Fusce et turpis volutpat nulla vulputate aliquet. Duis ullamcorper magna nec semper egestas. Pellentesque ac elementum elit. Aliquam erat volutpat. Curabitur sollicitudin dolor eros, eget malesuada tellus pulvinar at. Integer ultricies turpis ut tortor gravida volutpat. Curabitur nec porta augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur neque fringilla imperdiet finibus. Integer mattis tincidunt iaculis. Fusce sodales, eros quis porta maximus, justo ipsum tincidunt felis, quis lobortis nibh justo nec mi. Morbi non consectetur magna. Aenean a interdum urna.
-        <br></br><br></br>
-        Donec bibendum enim vitae lectus hendrerit, vitae porta nisi porta. Sed at rhoncus nisi. Duis posuere ipsum a orci convallis ultricies nec sed dui. Donec non malesuada ante. Aenean ut lacus vitae eros hendrerit porta. Curabitur auctor risus sed enim semper, eu condimentum velit elementum. Sed eu nibh imperdiet, varius augue vel, congue dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce semper, justo a maximus tempor, lacus neque cursus dui, condimentum blandit lorem neque nec nulla. Vestibulum tincidunt malesuada leo, in iaculis lectus sagittis eget. Maecenas facilisis quam in justo tincidunt, vel maximus massa vulputate. Cras vehicula, eros ut malesuada varius, sem eros dapibus nulla, nec lobortis arcu quam quis nisi. Donec nisl arcu, sollicitudin id nulla id, ultrices porta purus. Quisque tempor condimentum efficitur. Nullam suscipit rutrum scelerisque.
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut suscipit libero. Ut sapien arcu, tristique ut tristique sit amet, accumsan ut erat. Fusce et turpis volutpat nulla vulputate aliquet. Duis ullamcorper magna nec semper egestas. Pellentesque ac elementum elit. Aliquam erat volutpat. Curabitur sollicitudin dolor eros, eget malesuada tellus pulvinar at. Integer ultricies turpis ut tortor gravida volutpat. Curabitur nec porta augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur neque fringilla imperdiet finibus. Integer mattis tincidunt iaculis. Fusce sodales, eros quis porta maximus, justo ipsum tincidunt felis, quis lobortis nibh justo nec mi. Morbi non consectetur magna. Aenean a interdum urna.
-        <br></br><br></br>
-        Donec bibendum enim vitae lectus hendrerit, vitae porta nisi porta. Sed at rhoncus nisi. Duis posuere ipsum a orci convallis ultricies nec sed dui. Donec non malesuada ante. Aenean ut lacus vitae eros hendrerit porta. Curabitur auctor risus sed enim semper, eu condimentum velit elementum. Sed eu nibh imperdiet, varius augue vel, congue dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce semper, justo a maximus tempor, lacus neque cursus dui, condimentum blandit lorem neque nec nulla. Vestibulum tincidunt malesuada leo, in iaculis lectus sagittis eget. Maecenas facilisis quam in justo tincidunt, vel maximus massa vulputate. Cras vehicula, eros ut malesuada varius, sem eros dapibus nulla, nec lobortis arcu quam quis nisi. Donec nisl arcu, sollicitudin id nulla id, ultrices porta purus. Quisque tempor condimentum efficitur. Nullam suscipit rutrum scelerisque.
+        {story.map((item,index)=>{
+          return(<StoryBeat key={index} command={item.command} response={item.response}/>)
+        })}
       </div>
       <div className="command">
         {">"}<input autoFocus placeholder='Input Suggestion'></input><button>Submit</button>
