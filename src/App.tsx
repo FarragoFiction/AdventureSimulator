@@ -85,10 +85,11 @@ function App() {
     const str = await httpGetAsync("http://farragofiction.com:1972/WaitingForResponse");
     beepEffect();
     setStory(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
+    setNumberSubmittedCommands(0);
   }
 
   const canSubmit = () => {
-    return numberSubmittedCommands <= maxCommands && !submitted;
+    return numberSubmittedCommands < maxCommands && !submitted;
   }
 
   const submitCommand = async () => {
