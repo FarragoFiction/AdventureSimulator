@@ -310,6 +310,20 @@ code {
   100% {color: red; }
 }
 
+.rainbowText {
+  background-image: 
+    linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  animation: move 35s linear infinite;
+}
+
+@keyframes move {
+  to {
+    background-position: -4500vh;
+  }
+}
+
 .rainbow-text {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
   color: transparent;
@@ -426,16 +440,6 @@ code {
          }
 }
 
-.wavy {
-  position: relative;
-}
-
-.wavy span {
-  position: relative;
-  display: inline-block;
-  animation: animate 2s ease-in-out infinite;
-  animation-delay: calc(0.1s * var(--i));
-}
 
 @keyframes animate {
   0% {
@@ -513,14 +517,14 @@ code {
 }
 
 .text-shaky{
-  animation: Shake 0.1s linear infinite;
+  animation: shake 0.1s linear infinite;
   position: relative;
   display: inline-block;
   left: 0;
   bottom: 0;
 }
 
-@keyframes Shake {
+@keyframes shake {
   0%, 100% {
     transform: translateX(0);
   }
@@ -529,7 +533,71 @@ code {
   }
 }
 
+.rainbowShakyText {
+  background-image: 
+    linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  animation: move 30s linear infinite, shake 0.1s linear infinite;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  bottom: 0;
+}
 
+.wavy {
+  position: relative;
+}
+
+.wavy span {
+  position: relative;
+  display: inline-block;
+  animation: animate 2s ease-in-out infinite;
+  animation-delay: calc(0.22s * var(--i));
+}
+
+@keyframes animate {
+  0% {
+      transform: translateY(0px);
+  }
+
+  20% {
+      transform: translateY(-10px);
+  }
+
+  40%,
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+.wavyRainbow {
+  position: relative;
+  position: relative;
+  display: inline-block;
+  background-image: 
+    linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+.wavyRainbow span {
+   position: relative;
+  display: inline-block;
+  background-image: 
+    linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  animation: animate 2s ease-in-out infinite, moveAgain 65s linear infinite;
+  animation-delay: calc(0.22s * var(--i)),calc(0.2s * var(--i));
+}
+
+@keyframes moveAgain{
+  to {
+    background-position: -120vh;
+  }
+}
 
 
 
