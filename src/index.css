@@ -512,6 +512,23 @@ code {
   }
 }
 
+.text-shaky{
+  animation: Shake 0.1s linear infinite;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  bottom: 0;
+}
+
+@keyframes Shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+}
+
 
 
 
