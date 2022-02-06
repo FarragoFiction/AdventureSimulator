@@ -82,6 +82,9 @@ function App() {
   }
 
   useEffect(()=>{
+    if( getParameterByName("nostalgia", null)){
+      return;
+    }
     const ele = document.querySelector(".story-so-far");
     if(ele){
       ele.scrollTo(0,ele.scrollHeight);
