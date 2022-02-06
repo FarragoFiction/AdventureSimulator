@@ -73,18 +73,23 @@ function App() {
   const [story, setStory] = useState<StoryBeatType[]>(fetchInitialStory());
   console.log("JR NOTE: story is", story);
 
-  /*const waitForResponse = async ()=>{
+  const waitForResponse = async ()=>{
     console.log("JR NOTE: waiting for response");
     const str = await httpGetAsync("http://farragofiction.com:1972/WaitingForResponse");
     setStory(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
   }
 
   useEffect(()=>{
+    const ele = document.querySelector(".story-so-far");
+    if(ele){
+      ele.scrollTo(0,ele.scrollHeight);
+    }
+
     waitForResponse();
-  },[story])*/
+  },[story])
 
   return (
-    <div className="container">
+    <div className="container" id="story-container">
       <div className="story-so-far">
         {story.map((item, index) => {
           return (<StoryBeat key={index} command={item.command} response={item.response} />)
