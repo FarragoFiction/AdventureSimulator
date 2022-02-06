@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import beepSound from "./Audio/264828__cmdrobot__text-message-or-videogame-jump.mp3";
+const beepAudio = new Audio(beepSound);
+
+export const beepEffect = () =>{
+  beepAudio.play();
+}
 
 ReactDOM.render(
   <React.StrictMode>

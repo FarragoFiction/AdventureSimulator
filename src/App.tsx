@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { beepEffect } from '.';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
 
@@ -76,6 +77,7 @@ function App() {
   const waitForResponse = async ()=>{
     console.log("JR NOTE: waiting for response");
     const str = await httpGetAsync("http://farragofiction.com:1972/WaitingForResponse");
+    beepEffect();
     setStory(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
   }
 
