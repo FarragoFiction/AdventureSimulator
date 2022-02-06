@@ -1,26 +1,93 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
 
+export function getParameterByName(name: string, url: string | null) {
+  if (!url) {
+    url = window.location.href;
+  }
+  name = name.replace(/[[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
-const  httpGet =(theUrl:string)=>
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
+
+const httpGet = (theUrl: string) => {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", theUrl, false); // false for synchronous request
+  xmlHttp.send(null);
+  return xmlHttp.responseText;
+}
+
+
+const httpGetAsync = async (theUrl: string) => {
+  return new Promise(function (resolve, reject) {
+
+    let xhr = new XMLHttpRequest();
+    try {
+      xhr.open("get", theUrl);
+
+      xhr.onload = function () {
+        if (this.status >= 200 && this.status < 300) {
+          resolve(xhr.response);
+        } else {
+          window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+          reject({
+            status: this.status,
+            statusText: xhr.statusText
+          });
+        }
+      };
+      xhr.onerror = function () {
+        window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
+      };
+      xhr.send();
+    } catch (e) {
+      console.error(e);
+      window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+      return `[]`;
+    }
+  });
 }
 
 function App() {
   //httpGet("http://farragofiction.com:1972/Story")
   //`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You're just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
-  const [story, setStory] = useState<StoryBeatType[]>(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
+  const fetchInitialStory = ()=>{
+    let nostalgia = getParameterByName("nostalgia", null);
+    if(nostalgia){
+      const text = httpGet(`http://farragofiction.com/SettlersFromTheWest/${nostalgia}`)
+      console.log("JR NOTE: nostalgia is ", nostalgia,text);
+      return JSON.parse(text);
+    }else{
+      return JSON.parse(httpGet("http://farragofiction.com:1972/Story"));
+    }
+  }
+  const [story, setStory] = useState<StoryBeatType[]>(fetchInitialStory());
   console.log("JR NOTE: story is", story);
+
+  /*const waitForResponse = async ()=>{
+    console.log("JR NOTE: waiting for response");
+    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingForResponse");
+    setStory(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
+  }
+
+  useEffect(()=>{
+    waitForResponse();
+  },[story])*/
+
   return (
     <div className="container">
       <div className="story-so-far">
-        {story.map((item,index)=>{
-          return(<StoryBeat key={index} command={item.command} response={item.response}/>)
+        {story.map((item, index) => {
+          return (<StoryBeat key={index} command={item.command} response={item.response} />)
         })}
       </div>
       <div className="command">
