@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { beepEffect } from '.';
+import CommandInput from './command';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
 
@@ -78,7 +79,6 @@ function App() {
     }
   }
   const [story, setStory] = useState<StoryBeatType[]>(fetchInitialStory());
-  console.log("JR NOTE: story is", story);
 
   const waitForResponse = async () => {
     console.log("JR NOTE: waiting for response");
@@ -125,10 +125,7 @@ function App() {
       </div>
       {canSubmit() ?
         <div className="command">
-          {">"}
-          <form style={{display: 'inline-block'}} action="" method="post" onSubmit={submitCommand}>
-            <input onChange={(e) => setCommand(e.target.value)} autoFocus placeholder='Input Suggestion'></input><button type="submit" onClick={() => submitCommand()}>Submit</button>
-          </form>
+          <CommandInput setCommand={setCommand} submitCommand={submitCommand}/>
         </div> :
         <div className="command">
           Please Avoid Spamming Commands. Three Per Story Beat Is Suggested.
