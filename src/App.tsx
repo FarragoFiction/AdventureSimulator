@@ -98,7 +98,7 @@ function App() {
     }
     setSubmitted(true);
     setNumberSubmittedCommands(numberSubmittedCommands + 1);
-    const params = `command=${encodeURIComponent(command)}`;
+    const params = `command=${encodeURIComponent(command.substring(0, 1000))}`;
     //encodeURIComponent
     await httpGetAsync(`http://farragofiction.com:1972/PlayerCommand?${params}`);
     setSubmitted(false);
