@@ -119,6 +119,18 @@ textarea{
 
 
 
+.container{
+  width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+
 .player-container{
   width: 850px;
   margin-left: auto;
@@ -159,8 +171,9 @@ textarea{
 
 .story-so-far{
   margin-bottom: 50px;
-  overflow: auto;
-  height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+ height: 600px;
 }
 
 .response{
