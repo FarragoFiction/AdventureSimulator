@@ -87,7 +87,7 @@ function App() {
 
   const waitForResponse = async () => {
     console.log("JR NOTE: waiting for response");
-    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToFuckForResponse");
+    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
     beepEffect();
     setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
     setNumberSubmittedCommands(0);
@@ -106,7 +106,7 @@ function App() {
     setNumberSubmittedCommands(numberSubmittedCommands + 1);
     const params = `command=${encodeURIComponent(command.substring(0, 1000))}`;
     //encodeURIComponent
-    await httpGetAsync(`http://farragofiction.com:1972/PlayerFuckingCommand?${params}`);
+    await httpGetAsync(`http://farragofiction.com:1972/PlayerPleaseCommand?${params}`);
     setSubmitted(false);
   }
 
