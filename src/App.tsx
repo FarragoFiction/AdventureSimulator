@@ -76,7 +76,7 @@ function App() {
       console.log("JR NOTE: nostalgia is ", nostalgia, text);
       return JSON.parse(text);
     } else {
-      return JSON.parse(httpGet("http://farragofiction.com:1972/Story"));
+      return JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"));
     }
   }
   const [story, setStory] = useState<StoryBeatType[]>([]);
@@ -87,9 +87,9 @@ function App() {
 
   const waitForResponse = async () => {
     console.log("JR NOTE: waiting for response");
-    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingForResponse");
+    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToFuckForResponse");
     beepEffect();
-    setStory(JSON.parse(httpGet("http://farragofiction.com:1972/Story")));
+    setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
     setNumberSubmittedCommands(0);
   }
 
@@ -106,7 +106,7 @@ function App() {
     setNumberSubmittedCommands(numberSubmittedCommands + 1);
     const params = `command=${encodeURIComponent(command.substring(0, 1000))}`;
     //encodeURIComponent
-    await httpGetAsync(`http://farragofiction.com:1972/PlayerCommand?${params}`);
+    await httpGetAsync(`http://farragofiction.com:1972/PlayerFuckingCommand?${params}`);
     setSubmitted(false);
   }
 
