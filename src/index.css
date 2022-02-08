@@ -119,7 +119,7 @@ textarea{
 
 
 
-.container{
+.player-container{
   width: 850px;
   margin-left: auto;
   margin-right: auto;
@@ -127,7 +127,7 @@ textarea{
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 650px;
 }
 
 .simulator{

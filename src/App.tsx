@@ -124,7 +124,7 @@ function App() {
   }, [story])
 
   return (
-    <div className="container" id="story-container">
+    <div className="player-container" id="story-container">
       <div className="story-so-far">
         {story.map((item, index) => {
           return (<StoryBeat key={index} command={item.command} response={item.response} />)
