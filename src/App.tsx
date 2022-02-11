@@ -94,7 +94,7 @@ function App() {
   }
 
   const canSubmit = () => {
-    return numberSubmittedCommands < maxCommands && !submitted;
+    return !getParameterByName("nostalgia", null) && (numberSubmittedCommands < maxCommands && !submitted);
   }
 
   const submitCommand = async () => {
@@ -135,11 +135,11 @@ function App() {
           <CommandInput setCommand={setCommand} submitCommand={submitCommand}/>
         </div> :
         <div className="command">
-          Please Avoid Spamming Commands. Three Per Story Beat Is Suggested.
+          {getParameterByName("nostalgia", null)?"Commands can not be submitted for Saved Content.":"Please Avoid Spamming Commands. Three Per Story Beat Is Suggested."}
         </div>
 
       }
-
+    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
     </div>
   );
 }
