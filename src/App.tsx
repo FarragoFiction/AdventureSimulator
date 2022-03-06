@@ -123,6 +123,9 @@ function App() {
     waitForResponse();
   }, [story])
 
+  //http://www.farragofiction.com/DollSim/index.html?Rebel+Cassan%3A___ArBgAAAD2xUrtrwwXc1QLLSQQPSUAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrww7qA8TKh8AAAAAAABJSUlpuMj2xQBQUAAIgI0BGgICAW8BC-B0QCMARgHsD3g
+  //http://www.farragofiction.com/DollSim/index.html?Rod+Cassan%3A___ArBgAAAD2xUrtrwyFr_94nuZzk9AAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrwxhxF86fkcA_wAA_wBJSUlpuMj2xQBQUAAI4FWASsB-_QAowAUYB7A94A%3D
+  //http://www.farragofiction.com/DollSim/index.html?Melon+Cassan%3A___ArBgAAAD2xUrtrwx59WFIuCgupB4AAAAAAAAA_wAAAADmxy3lvCrZpBI9pErtrwxhxF86fkcA_wAA_wBJSUlpuMinAPVQUAAIgXQLoGGAXQAyngbEAJrAE1gewPe
   return (
     <div className="player-container" id="story-container">
       <div className="story-so-far">
