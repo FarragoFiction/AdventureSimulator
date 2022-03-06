@@ -233,6 +233,23 @@ code {
     monospace;
 }
 
+a:link{
+  color: #c4c4c4;
+}
+
+a:visited{
+  color: #00ff00;
+}
+
+a:hover{
+  color: #ffff00;
+}
+
+a:active{
+  color: #ff0000;
+}
+
+
 .invisible-until-hover{
   opacity: 0;
 }

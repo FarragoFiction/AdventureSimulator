@@ -139,8 +139,11 @@ function App() {
         </div>
 
       }
+      <div style={{fontFamily: "gamer2",fontSize: "120%"}}>
     <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
     <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
+    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission1</a></p>
+    </div>
 
     </div>
   );
