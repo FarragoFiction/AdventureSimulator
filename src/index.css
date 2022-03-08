@@ -139,7 +139,7 @@ textarea{
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  height: 650px;
+  height: 800px;
 }
 
 .simulator{
@@ -239,7 +239,7 @@ a:link{
 
 a:visited{
   color: #00ff00;
-}
+}yer
 
 a:hover{
   color: #ffff00;

@@ -123,7 +123,7 @@ function App() {
     waitForResponse();
   }, [story])
   //NOTE to self: if i'm ever ready to let AdventureSim end, copy BB's Feelings.dart and etc back into HB and let him take over DMing.
-
+  //once he gets his feelings back, Hearlessbot is a very angry, very sweary boi.  He has a LOT of backpay from running adventure sim and he's spending butlerbux like its going out of style.
   /*
   http://www.farragofiction.com/DollSim/index.html?Rebel+Cassan%3A___ArBgAAAD2xUrtrwwXc1QLLSQQPSUAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrww7qA8TKh8AAAAAAABJSUlpuMj2xQBQUAAIgI0BGgICAW8BC-B0QCMARgHsD3g
   http://www.farragofiction.com/DollSim/index.html?Rod+Cassan%3A___ArBgAAAD2xUrtrwyFr_94nuZzk9AAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrwxhxF86fkcA_wAA_wBJSUlpuMj2xQBQUAAI4FWASsB-_QAowAUYB7A94A%3D
