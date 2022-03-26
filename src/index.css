@@ -317,6 +317,37 @@ a:active{
   position: absolute;
 }
 
+.innerMonologue{
+  text-decoration: line-through;
+   font-style: italic;
+}
+
+.customerSurvey{
+  background:rgb(248, 250, 250); 
+   padding: 50px;
+   border-radius: 13px;
+   font-family: Times New Roman;
+   color: rgb(31, 63, 135);
+  }
+.ronin{
+    background: #ffe972;
+    color: black;
+    padding: 13px;
+    border-radius: 13px;
+    margin: 13px;
+  max-width: 400px;
+}
+.observer{
+    background: black;
+    color: white;
+    padding: 13px;
+    border-radius: 13px;
+    margin: 13px;
+  margin-left: auto;
+  margin-right: 13px;
+  max-width: 400px;
+}
+
 .fade-in-animation{
   animation: fade-in  3s steps(10) infinite;
 }
