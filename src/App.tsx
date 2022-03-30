@@ -144,6 +144,8 @@ function App() {
     <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
     <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
     <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2</a></p>
+    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=criminal_ending.txt'>Criminal Ending</a></p>
+
     </div>
 
     </div>
