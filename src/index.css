@@ -139,7 +139,6 @@ textarea{
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  height: 800px;
 }
 
 .simulator{
@@ -173,7 +172,7 @@ textarea{
   margin-bottom: 50px;
   overflow-y: auto;
   overflow-x: hidden;
- height: 600px;
+ height: 500px;
 }
 
 .response{
