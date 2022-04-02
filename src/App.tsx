@@ -141,11 +141,6 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
-        <p style={{
-          color:
-            "#f0f0f0", fontFamily: "Courier New,monospace"
-        }}> DM NOTE:  Join JR and IC as we celebrate Zampanio's 50th year anniversary by searching for a copy of the game LIVE on the wayback machine! We'll document our findings using AdventureSim and respond to fan comments and suggestions!
-        </p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2</a></p>
