@@ -79,9 +79,9 @@ function App() {
   }
   const [story, setStory] = useState<StoryBeatType[]>([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setStory(fetchInitialStory());
-  },[])
+  }, [])
 
   const waitForResponse = async () => {
     const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
@@ -133,25 +133,30 @@ function App() {
       </div>
       {canSubmit() ?
         <div className="command">
-          <CommandInput setCommand={setCommand} submitCommand={submitCommand}/>
+          <CommandInput setCommand={setCommand} submitCommand={submitCommand} />
         </div> :
         <div className="command">
-          {getParameterByName("nostalgia", null)?"Commands can not be submitted for Saved Content.":"Please Avoid Spamming Commands. Three Per Story Beat Is Suggested."}
+          {getParameterByName("nostalgia", null) ? "Commands can not be submitted for Saved Content." : "Please Avoid Spamming Commands. Three Per Story Beat Is Suggested."}
         </div>
 
       }
-      <div style={{fontFamily: "gamer2",fontSize: "120%"}}>
-      <p style={{color:
-"#f0f0f0",fontFamily:"Courier New,monospace"}}> DM NOTE:  Join JR and IC as we celebrate Zampanio's 50th year anniversary by searching for a copy of the game LIVE on the wayback machine! We'll document our findings using AdventureSim and respond to fan comments and suggestions!
-  </p>
-    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
-    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
-    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2</a></p>
-    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=criminal_ending.txt'>Criminal Ending</a><span style={{marginLeft:"30px"}}>"giving twitch chat a gun was a terrible idea"- The Catalyst</span></p>
-    <p><a href ='http://farragofiction.com/AdventureSimWest/?nostalgia=courtroom_drama.txt'>Courtroom Savefile</a><span style={{marginLeft:"30px"}}>"twitch chat defends itself in court
-the long awaited sequel to twitch chat has a gun"- The Catalyst</span></p>
+      <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
+        <p style={{
+          color:
+            "#f0f0f0", fontFamily: "Courier New,monospace"
+        }}> DM NOTE:  Join JR and IC as we celebrate Zampanio's 50th year anniversary by searching for a copy of the game LIVE on the wayback machine! We'll document our findings using AdventureSim and respond to fan comments and suggestions!
+        </p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2</a></p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=criminal_ending.txt'>Criminal Ending</a><span style={{ marginLeft: "30px" }}>"giving twitch chat a gun was a terrible idea"- The Catalyst</span></p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=happy_fifty_years_zampanio.txt'>Intermission3: Zampanio 50 Years</a></p>
 
-     </div>
+       
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=courtroom_drama.txt'>Courtroom Savefile</a><span style={{ marginLeft: "30px" }}>"twitch chat defends itself in court
+          the long awaited sequel to twitch chat has a gun"- The Catalyst</span></p>
+
+      </div>
 
     </div>
   );
