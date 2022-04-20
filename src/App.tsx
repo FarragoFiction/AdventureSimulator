@@ -141,15 +141,20 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1</a></p>
+        Intermission Currently IN Progress.
+      <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=flower_chick_and_the_auditor.txt'>Intermission -2: FlowerChick</a></p>
+      <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=wanda_and_the_meme.txt'>Intermission -1: CEBro</a></p>
+
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1: Himbo</a></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2</a></p>
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2: Hostage</a></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=criminal_ending.txt'>Criminal Ending</a><span style={{ marginLeft: "30px" }}>"giving twitch chat a gun was a terrible idea"- The Catalyst</span></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=happy_fifty_years_zampanio.txt'>Intermission3: Zampanio 50 Years</a></p>
 
        
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=courtroom_drama.txt'>Courtroom Savefile</a><span style={{ marginLeft: "30px" }}>"twitch chat defends itself in court
           the long awaited sequel to twitch chat has a gun"- The Catalyst</span></p>
+          <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=courtroom_dramaPreIntermission.txt'>Courtroom Savefile2</a></p>
 
       </div>
 
