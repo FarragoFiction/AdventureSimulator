@@ -141,6 +141,7 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
+        <p>Intermission Currently IN Progress.</p>
       <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=flower_chick_and_the_auditor.txt'>Intermission -2: FlowerChick</a></p>
       <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=wanda_and_the_meme.txt'>Intermission -1: CEBro</a></p>
 
@@ -151,7 +152,7 @@ function App() {
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=happy_fifty_years_zampanio.txt'>Intermission3: Zampanio 50 Years</a></p>
 
        
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=courtroom_drama.txt'>Courtroom Savefile</a><span style={{ marginLeft: "30px" }}>"twitch chat defends itself in court
+        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=hanging_with_the_solemn_after_killing_his_boss.txt'>Courtroom Savefile</a><span style={{ marginLeft: "30px" }}>"twitch chat defends itself in court
           the long awaited sequel to twitch chat has a gun"- The Catalyst</span></p>
         <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission3-end.txt'>Intermission 3: The End</a></p>
 
