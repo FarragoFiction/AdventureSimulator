@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { beepEffect } from '.';
 import CommandInput from './command';
+import { renderIntermissions } from './intermission';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
 
@@ -124,6 +125,7 @@ function App() {
   http://www.farragofiction.com/DollSim/index.html?Rod+Cassan%3A___ArBgAAAD2xUrtrwyFr_94nuZzk9AAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrwxhxF86fkcA_wAA_wBJSUlpuMj2xQBQUAAI4FWASsB-_QAowAUYB7A94A%3D
   http://www.farragofiction.com/DollSim/index.html?Melon+Cassan%3A___ArBgAAAD2xUrtrwx59WFIuCgupB4AAAAAAAAA_wAAAADmxy3lvCrZpBI9pErtrwxhxF86fkcA_wAA_wBJSUlpuMinAPVQUAAIgXQLoGGAXQAyngbEAJrAE1gewPe
   */
+  renderIntermissions();
   return (
     <div className="player-container" id="story-container">
       <div className="story-so-far">
@@ -141,21 +143,7 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
-      <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=flower_chick_and_the_auditor.txt'>Intermission -2: FlowerChick</a></p>
-      <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=wanda_and_the_meme.txt'>Intermission -1: CEBro</a></p>
-
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission1.txt'>Intermission1: Himbo</a></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=data_expunged_ending.txt'>[DATA EXPUNGED] ENDING</a></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission2.txt'>Intermission2: Hostage</a></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=criminal_ending.txt'>Criminal Ending</a><span style={{ marginLeft: "30px" }}>"giving twitch chat a gun was a terrible idea"- The Catalyst</span></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=happy_fifty_years_zampanio.txt'>Intermission3: Zampanio 50 Years</a></p>
-
-       
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=hanging_with_the_solemn_after_killing_his_boss.txt'>Courtroom Savefile</a><span style={{ marginLeft: "30px" }}>"twitch chat defends itself in court
-          the long awaited sequel to twitch chat has a gun"- The Catalyst</span></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission3-end.txt'>Intermission 3: The End</a></p>
-        <p><a href='http://farragofiction.com/AdventureSimWest/?nostalgia=intermission-eyekiller.txt'>Intermission 3: The End</a></p>
-
+      <div id="intermission">LOADING...</div>
       </div>
 
     </div>
