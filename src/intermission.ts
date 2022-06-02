@@ -154,8 +154,8 @@ const intermissions: Intermission[] = [
   new Intermission("Loop 2: CRIMINAL ENDING", ["todo"], "'giving twitch chat a gun was a terrible idea' - The Catalyst", false, "criminal_ending.txt"),
   new Intermission("Happy 50th Anniversary, Zampanio!!!", ["All of Us Togther"], "It's so crazy that I got into Zampanio just in time to celebrate such a huge milestone.", false, "happy_fifty_years_zampanio.txt"),
   new Intermission("Current Savefile", ["TODO"], "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "hanging_with_the_solemn_after_killing_his_boss.txt"),
-  new Intermission("Intermission 4", ["Eye Killer, Hostage, Himbo"], "To horses, everything is Silent Hill...", false, "intermission-eyekiller.txt"),
-  new Intermission("Intermission 5", ["The End/ Camille"], "The consequences of your taunts...", false, "intermission3-end.txt"),
+  new Intermission("Intermission 3", ["Eye Killer, Hostage, Himbo"], "To horses, everything is Silent Hill...", false, "intermission-eyekiller.txt"),
+  new Intermission("Intermission 4", ["The End/ Camille"], "The consequences of your taunts...", false, "intermission3-end.txt"),
 
 ]
 
