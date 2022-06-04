@@ -78,7 +78,12 @@ export class Chapter {
 
   renderSelf = (ele: Element) => {
     const date = document.createElement("span");
-    date.innerHTML = "(Saved On: " + this.date + ")";
+    if(this.date && this.date !== UNKNOWN){
+      date.innerHTML = `(Saved On: ${new Date(this.date).toLocaleDateString()}    ${new Date(this.date).toLocaleTimeString()}`;
+    }else{
+      date.innerHTML = "(Saved On: " +this.date + ")";
+
+    }
     date.className = "date";
 
     const size = document.createElement("span");
