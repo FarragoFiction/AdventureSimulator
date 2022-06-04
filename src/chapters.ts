@@ -61,11 +61,12 @@ const full_of_rage_hack_the_stylesheets = (ele: Element) => {
   bad_idea.appendChild(document.createTextNode(styles));
   ele.append(bad_idea);
 }
-export const renderChapters = () => {
+
+export const renderChapters = (force: boolean) => {
   const ele = document.querySelector("#intermission");
   console.log("JR NOTE: rendering intermission...ele is", ele)
 
-  if (!ele || ele.innerHTML !== "LOADING...") {
+  if (!ele || (!force &&ele.innerHTML !== "LOADING...")) {
     console.log("JR NOTE: it is not time to render")
     return;
   }
