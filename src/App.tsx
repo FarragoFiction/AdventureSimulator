@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { beepEffect } from '.';
 import CommandInput from './command';
-import { renderIntermissions } from './intermission';
+import { renderChapters } from './chapters';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
 
@@ -125,7 +125,7 @@ function App() {
   http://www.farragofiction.com/DollSim/index.html?Rod+Cassan%3A___ArBgAAAD2xUrtrwyFr_94nuZzk9AAAAAAAAAA_wAAAADmxy3lvCrZpBL2xUrtrwxhxF86fkcA_wAA_wBJSUlpuMj2xQBQUAAI4FWASsB-_QAowAUYB7A94A%3D
   http://www.farragofiction.com/DollSim/index.html?Melon+Cassan%3A___ArBgAAAD2xUrtrwx59WFIuCgupB4AAAAAAAAA_wAAAADmxy3lvCrZpBI9pErtrwxhxF86fkcA_wAA_wBJSUlpuMinAPVQUAAIgXQLoGGAXQAyngbEAJrAE1gewPe
   */
-  renderIntermissions();
+  renderChapters();
   return (
     <div className="player-container" id="story-container">
       <div className="story-so-far">
