@@ -37,7 +37,7 @@ const httpGetAsync = async (theUrl: string) => {
         if (this.status >= 200 && this.status < 300) {
           resolve(xhr.response);
         } else {
-          window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+          window.alert("JR NOTE: servers dead i guess? the future comes for us all.")
           reject({
             status: this.status,
             statusText: xhr.statusText
@@ -45,7 +45,7 @@ const httpGetAsync = async (theUrl: string) => {
         }
       };
       xhr.onerror = function () {
-        window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+        window.alert("JR NOTE: servers dead i guess? the future comes for us all.")
         reject({
           status: this.status,
           statusText: xhr.statusText
@@ -54,7 +54,7 @@ const httpGetAsync = async (theUrl: string) => {
       xhr.send();
     } catch (e) {
       console.error(e);
-      window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+      window.alert("JR NOTE: servers dead i guess? the future comes for us all.")
       return `[]`;
     }
   });
@@ -70,12 +70,16 @@ function App() {
   //httpGet("http://farragofiction.com:1972/Story")
   //`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You're just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
   const fetchInitialStory = () => {
-    let nostalgia = getParameterByName("nostalgia", null);
-    if (nostalgia) {
-      const text = httpGet(`http://farragofiction.com/SettlersFromTheWest/${nostalgia}`)
-      return JSON.parse(text);
-    } else {
-      return JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"));
+    try {
+      let nostalgia = getParameterByName("nostalgia", null);
+      if (nostalgia) {
+        const text = httpGet(`http://farragofiction.com/SettlersFromTheWest/${nostalgia}`)
+        return JSON.parse(text);
+      } else {
+        return JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"));
+      }
+    } catch (e) {
+      console.error("JR NOTE: servers dead i guess? the future comes for us all.");
     }
   }
   const [story, setStory] = useState<StoryBeatType[]>([]);
@@ -131,9 +135,9 @@ function App() {
   return (
     <div className="player-container" id="story-container">
       <div className="story-so-far">
-        {story.map((item, index) => {
+        {story? story.map((item, index) => {
           return (<StoryBeat key={index} command={item.command} response={item.response} />)
-        })}
+        }) : null}
       </div>
       {canSubmit() ?
         <div className="command">
@@ -145,7 +149,7 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
-      <div id="intermission">LOADING...</div>
+        <div id="intermission">LOADING...</div>
       </div>
 
     </div>
