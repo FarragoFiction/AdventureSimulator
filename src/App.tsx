@@ -132,6 +132,10 @@ function App() {
 
   }
 
+  const loadStoryFromTextArea = useCallback((strstory:string)=>{
+    setStory(JSON.parse(strstory));
+  },[]);
+
   const addBeatBeneath = useCallback((toUpdate: StoryBeatType)=>{
     let tmp = [...story];
     const newItem = ({command: "TODO", response: "TODO"})
@@ -204,7 +208,7 @@ function App() {
         </div>
         <div className="command">
           <label>Text File To Copy</label>
-          <textarea value={JSON.stringify(story)}/>
+          <textarea value={JSON.stringify(story)} onChange={(e)=>loadStoryFromTextArea(e.target.value)}/>
           <a download = "story.txt" href={`data:text/plain;charset=utf-8,${encodeURIComponent(JSON.stringify(story))}`}>Download</a>
           <a  onClick ={()=>setEditing(false)}>Preview</a>
 
