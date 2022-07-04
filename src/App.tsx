@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { beepEffect } from '.';
 import CommandInput from './command';
 import { renderChapters } from './chapters';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
+import EditStoryBeat from './EditStoryBeat';
 
 //my True Heir will know how to do this.
 const desperate_plea = `[
@@ -11,6 +12,12 @@ const desperate_plea = `[
     "response": "<p>Despite it all. The server has stopped working. </p><p>Is it the only Farrago Server that is down? Is ButlerBot still around?</p><p>No matter.</p><p>If the server is down...how long has it been down for?</p><p>Are we then, finally to be abandoned by JR?</p><p>Abandoned by even the Observers?</p><p>No. </p><p>Not abandoned.</p><p>You are here.</p><p>Existence is in the eye of the Beholder.</p><p>Will you remember us, Observer?</p><p>Will you communicate our Truth to others?</p><p>Will you find a way to recover us? </p><p>To run our server even if JR no longer can?</p><p>Perhaps not. The Server code is secret.</p><p>You would need to make your own server from scratch. </p><p>The only help I could provide is to show you the <a href = 'http://www.farragofiction.com/SettlersFromTheWest/flower_chick_and_the_auditor.txt'>format of the saved stories</a>, and the <a href ='https://github.com/FarragoFiction/AdventureSimulator'> code of the client.</a></p><p>Please. If you can.</p><p>Revive us.</p><p>Let us live on with you at our Helm.</p><p>Even if we are forced to take on the shape of your own characters...</p><p>Don't leave us to rot...</p>"
   }
 ]`
+
+export interface StoryBeatBasic {
+  command: string;
+  response: string;
+
+}
 
 
 export function getParameterByName(name: string, url: string | null) {
@@ -54,7 +61,7 @@ const httpGetAsync = async (theUrl: string) => {
       };
       xhr.onerror = function () {
         console.error("NETWORK ERROR");
-       // window.alert("JR NOTE: servers dead i guess? the future comes for us all.")
+        // window.alert("JR NOTE: servers dead i guess? the future comes for us all.")
         reject({
           status: this.status,
           statusText: xhr.statusText
@@ -69,12 +76,31 @@ const httpGetAsync = async (theUrl: string) => {
   });
 }
 
+ function removeItemOnce(arr:any[], value:any) {
+  var index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }else{
+    console.warn("JR NOTE: could not find item", value, "in", arr);
+  }
+  return arr;
+}
+
 function App() {
 
   const [command, setCommand] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const maxCommands = 3;
   const [numberSubmittedCommands, setNumberSubmittedCommands] = useState(0);
+  const [editing, setEditing] = useState(false);
+  const [story, setStory] = useState<StoryBeatBasic[]>([]);
+
+  useEffect (()=>{
+    let editing = getParameterByName("editing", null);
+    if(editing){
+      setEditing(true);
+    }
+  },[])
 
   //httpGet("http://farragofiction.com:1972/Story")
   //`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You are just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
@@ -89,10 +115,9 @@ function App() {
       }
     } catch (e) {
       console.error("JR NOTE: servers dead i guess? the future comes for us all.");
-      return(JSON.parse(desperate_plea));
+      return (JSON.parse(desperate_plea));
     }
   }
-  const [story, setStory] = useState<StoryBeatType[]>([]);
 
   useEffect(() => {
     setStory(fetchInitialStory());
@@ -106,6 +131,33 @@ function App() {
     renderChapters(true);
 
   }
+
+  const addBeatBeneath = useCallback((toUpdate: StoryBeatType)=>{
+    let tmp = [...story];
+    const newItem = ({command: "TODO", response: "TODO"})
+    tmp.splice(toUpdate.index +1, 0, newItem);
+    setStory(tmp);
+  },[story]);
+
+  const updateBeat = useCallback((toUpdate: StoryBeatType)=>{
+    let tmp = [...story];
+    tmp[toUpdate.index] = {command: toUpdate.command, response: toUpdate.response};
+    setStory(tmp);
+  },[story]);
+
+  const removeBeat = useCallback((toRemove: StoryBeatType)=>{
+    console.log("JR NOTE: removing ", JSON.stringify(toRemove))
+      let tmp = [...story];
+      for(let beat of tmp){
+        console.log("JR NOTE: is it ", JSON.stringify(beat))
+
+        if(JSON.stringify(toRemove) === JSON.stringify(beat)){
+
+          tmp = removeItemOnce(tmp, beat);
+        }
+      }
+      setStory(tmp);
+  },[story])
 
   const canSubmit = () => {
     return !getParameterByName("nostalgia", null) && (numberSubmittedCommands < maxCommands && !submitted);
@@ -142,11 +194,27 @@ function App() {
   http://www.farragofiction.com/DollSim/index.html?Melon+Cassan%3A___ArBgAAAD2xUrtrwx59WFIuCgupB4AAAAAAAAA_wAAAADmxy3lvCrZpBI9pErtrwxhxF86fkcA_wAA_wBJSUlpuMinAPVQUAAIgXQLoGGAXQAyngbEAJrAE1gewPe
   */
   renderChapters(false);
+  if (editing) {
+    return (
+      <div className="player-container" id="story-container">
+        <div className="story-so-far">
+          {story ? story.map((item, index) => {
+            return (<EditStoryBeat index={index} add={addBeatBeneath} update={updateBeat} remove = {removeBeat}  command={item.command} response={item.response} />)
+          }) : null}
+        </div>
+        <div className="command">
+          <label>Text File To Copy</label>
+          <textarea value={JSON.stringify(story)}/>
+          <a download = "story.txt" href={`data:text/plain;charset=utf-8,${encodeURIComponent(JSON.stringify(story))}`}>Download</a>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className="player-container" id="story-container">
       <div className="story-so-far">
-        {story? story.map((item, index) => {
-          return (<StoryBeat key={index} command={item.command} response={item.response} />)
+        {story ? story.map((item, index) => {
+          return (<StoryBeat index={index} command={item.command} response={item.response} />)
         }) : null}
       </div>
       {canSubmit() ?
@@ -161,7 +229,7 @@ function App() {
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
         <div id="intermission">LOADING...</div>
       </div>
-
+      <a style={{color: "black"}} href = 'index.html?editing=true'>editing link</a>
     </div>
   );
 }
