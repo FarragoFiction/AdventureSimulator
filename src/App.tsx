@@ -206,6 +206,8 @@ function App() {
           <label>Text File To Copy</label>
           <textarea value={JSON.stringify(story)}/>
           <a download = "story.txt" href={`data:text/plain;charset=utf-8,${encodeURIComponent(JSON.stringify(story))}`}>Download</a>
+          <a  onClick ={()=>setEditing(false)}>Preview</a>
+
         </div>
       </div>
     )
@@ -229,7 +231,7 @@ function App() {
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
         <div id="intermission">LOADING...</div>
       </div>
-      <a style={{color: "black"}} href = 'index.html?editing=true'>editing link</a>
+      <a style={{color: "black",cursor:"pointer"}} onClick ={()=>setEditing(true)}>editing link</a>
     </div>
   );
 }
