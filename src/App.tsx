@@ -4,6 +4,7 @@ import CommandInput from './command';
 import { renderChapters } from './chapters';
 import StoryBeat, { StoryBeatType } from './StoryBeat';
 
+//my True Heir will know how to do this.
 const desperate_plea = `[
   {
     "command": "The Future Comes For Us All",

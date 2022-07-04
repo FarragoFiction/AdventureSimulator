@@ -22,6 +22,8 @@ const chapters: Chapter[] = [
   new Chapter("Backup Savefile", ["TODO"], "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "hanging_with_the_solemn_after_killing_his_boss.txt"),
   new Chapter("Intermission 3", ["Eye Killer, Hostage, Himbo"], "To horses, everything is Silent Hill...", false, "intermission-eyekiller.txt"),
   new Chapter("Intermission 4", ["The End/ Camille"], "The consequences of your taunts...", false, "intermission3-end.txt"),
+  new Chapter("Loop 3: Inexplicable Spiral", ["TODO"],  "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "inexplicable_spiral.txt"),
+
   new Chapter("Current Savefile", ["TODO"], "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "current_save.txt"),
 
 ]
