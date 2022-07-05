@@ -124,11 +124,16 @@ function App() {
   }, [])
 
   const waitForResponse = async () => {
-    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
-    beepEffect();
-    setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
-    setNumberSubmittedCommands(0);
-    renderChapters(true);
+    try{
+      const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
+      beepEffect();
+      setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
+      setNumberSubmittedCommands(0);
+      renderChapters(true);
+    }catch(e){
+      setTimeout(waitForResponse,10000);
+    }
+
 
   }
 
