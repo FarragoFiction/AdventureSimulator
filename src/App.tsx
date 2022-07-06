@@ -95,6 +95,8 @@ function App() {
   const [editing, setEditing] = useState(false);
   const [story, setStory] = useState<StoryBeatBasic[]>([]);
 
+  const intermissionMode = true;
+
   useEffect (()=>{
     let editing = getParameterByName("editing", null);
     if(editing){
@@ -238,6 +240,7 @@ function App() {
 
       }
       <div style={{ fontFamily: "gamer2", fontSize: "120%" }}>
+        {intermissionMode? "NOTE: INTERMISSION CURRENLY IN PROGRESS. MAIN LOOP SHOULD BE ACCESSIBLE THROUGH THE CHAPTER LIST": ""}
         <div id="intermission">LOADING...</div>
       </div>
       <a style={{color: "black",cursor:"pointer"}} onClick ={()=>setEditing(true)}>editing link</a>
