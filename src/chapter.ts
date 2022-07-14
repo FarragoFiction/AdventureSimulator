@@ -103,6 +103,8 @@ export class Chapter {
     a.href = pretty_location + this.href;
     if(this.href === "current_save.txt"){
       a.href = current_location;
+    }else if (this.href === "arm2.txt"){
+      a.href = "http://farragofiction.com/Arm2"
     }
     a.innerHTML = this.title;
     p.append(a);
