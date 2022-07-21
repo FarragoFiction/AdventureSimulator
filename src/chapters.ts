@@ -26,7 +26,7 @@ const chapters: Chapter[] = [
   new Chapter("Intermission 5", ["Yongki","Witherby","K"], "Yongiki[sic] Makes New Friends ", false, "yongki_intermission.txt"),
   new Chapter("Arm2-Loop1", [""], "What have you done??? ", false, "arm2.txt"),
 
-  new Chapter("Current Savefile", ["TODO"], "What will you have Peewee do? ", false, "current_save.txt"),
+  new Chapter("Current Savefile", ["TODO"], "twitch chat goes shopping normally -The Taxonomist ", false, "current_save.txt"),
 
 ]
 
