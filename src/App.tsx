@@ -95,7 +95,7 @@ function App() {
   const [editing, setEditing] = useState(false);
   const [story, setStory] = useState<StoryBeatBasic[]>([]);
 
-  const intermissionMode = false;
+  const intermissionMode = true;
 
   useEffect (()=>{
     let editing = getParameterByName("editing", null);

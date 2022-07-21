@@ -19,7 +19,7 @@ const chapters: Chapter[] = [
   new Chapter("Intermission 2", ["Hostage"], "Sedation really did a number on him...", false, "intermission2.txt"),
   new Chapter("Loop 2: CRIMINAL ENDING", ["todo"], "'giving twitch chat a gun was a terrible idea' - The Catalyst", false, "criminal_ending.txt"),
   new Chapter("Happy 50th Anniversary, Zampanio!!!", ["All of Us Togther"], "It's so crazy that I got into Zampanio just in time to celebrate such a huge milestone.", false, "happy_fifty_years_zampanio.txt"),
-  new Chapter("Backup Savefile", ["TODO"], "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "hanging_with_the_solemn_after_killing_his_boss.txt"),
+  new Chapter("Backup Savefile", ["TODO"], "The Universe is in Safe Mode. ", false, "backup.txt"),
   new Chapter("Intermission 3", ["Eye Killer, Hostage, Himbo"], "To horses, everything is Silent Hill...", false, "intermission-eyekiller.txt"),
   new Chapter("Intermission 4", ["The End/ Camille"], "The consequences of your taunts...", false, "intermission3-end.txt"),
   new Chapter("Loop 3: Inexplicable Spiral", ["TODO"],  "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "inexplicable_spiral.txt"),
