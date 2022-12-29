@@ -25,6 +25,9 @@ const chapters: Chapter[] = [
   new Chapter("Loop 3: Inexplicable Spiral", ["TODO"],  "'twitch chat defends itself in court, the long awaited sequel to twitch chat has a gun' --The Catalyst ", false, "inexplicable_spiral.txt"),
   new Chapter("Intermission 5", ["Yongki","Witherby","K"], "Yongiki[sic] Makes New Friends ", false, "yongki_intermission.txt"),
   new Chapter("Arm2-Loop1", [""], "What have you done??? ", false, "arm2.txt"),
+  new Chapter("Time Paradox", ["Parker","Doc Slaughter","Vik","Camille","Peewee","Devona","Neville","Witherby","???","Closer","CFO","Rod"], "The Universe is in Safe Mode.", false, "same_mode.txt"),
+
+  new Chapter("Time Paradox", ["Parker","Doc Slaughter","Vik","Camille","Peewee","Devona","Neville","Witherby","???","Closer","CFO","Rod"], "Peewee's despair comes to a head, even as we give him a little break... It can only go up from here. Collides with Safe Mode and causes a Glitch.", false, "time_paradox.txt"),
 
   new Chapter("Current Savefile", ["TODO"], "twitch chat goes shopping normally -The Taxonomist ", false, "current_save.txt"),
 
