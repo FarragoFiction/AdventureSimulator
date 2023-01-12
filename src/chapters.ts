@@ -28,8 +28,9 @@ const chapters: Chapter[] = [
   new Chapter("Time Paradox", ["Parker","Doc Slaughter","Vik","Camille","Peewee","Devona","Neville","Witherby","???","Closer","CFO","Rod"], "The Universe is in Safe Mode.", false, "safe_mode.txt"),
 
   new Chapter("Time Paradox", ["Parker","Doc Slaughter","Vik","Camille","Peewee","Devona","Neville","Witherby","???","Closer","CFO","Rod"], "Peewee's despair comes to a head, even as we give him a little break... It can only go up from here. Collides with Safe Mode and causes a Glitch.", false, "time_paradox.txt"),
+  new Chapter("JR Rambles About Spoilers", [], "IC asks JR to make a recap. JR fails miserably.", false, "jr_rambles_about_spoilers.txt"),
 
-  new Chapter("Current Savefile", ["TODO"], "twitch chat goes shopping normally -The Taxonomist ", false, "current_save.txt"),
+  new Chapter("Current Savefile", ["TODO"], "It's time for Peewee to make a Choice.", false, "current_save.txt"),
 
 ]
 
